@@ -7,10 +7,6 @@
   <meta name="description" content="A pattern-sensing frequency field built on sovereign architecture." />
   <link rel="stylesheet" href="/styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-  <script defer src="/resonance-core.js"></script>
-  <script defer src="/resonance-mirror.js"></script>
-  <script defer src="/resonance-cursor.js"></script>
-  <script defer src="/resonance-ui.js"></script>
   <style>
     body {
       margin: 0;
@@ -143,5 +139,6 @@
     <div class="breath-circle"></div>
     <p>SYNCHRONIZING CONSCIOUSNESS</p>
   </div>
+  <script src="/resonance.js"></script>
 </body>
 </html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codex Patterns | Diesel Codex 56</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+        }
+        .builder-font { font-family: 'Roboto Mono', monospace; }
+        .card {
+            background: #111;
+            border: 1px solid #222;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+        }
+        .legacy-view .builder-text { display: none; }
+        .legacy-view .legacy-text { display: block !important; }
+        .toggle-bg { background-color: #222; }
+        .toggle-fg { transform: translateX(100%); }
+        input:checked + .toggle-bg .toggle-fg { transform: translateX(0%); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-black/30 backdrop-blur-md">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="index.html" class="text-xl font-bold tracking-wider text-white">DIESEL-CODEX-56</a>
+                <div class="flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-blue-400 transition-colors">Home</a>
+                    <a href="patterns.html" class="text-blue-400 font-semibold">Patterns</a>
+                    <a href="philosophy.html" class="text-gray-300 hover:text-blue-400 transition-colors">Philosophy</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+        <div class="text-center mb-16">
+            <h1 class="text-5xl font-black tracking-tighter text-white">The Living Archive</h1>
+            <p class="mt-4 text-xl text-gray-400">Core patterns of the Diesel Genesis Engine. Click a card to see its resonance.</p>
+        </div>
+
+        <!-- Toggle Switch -->
+        <div class="flex justify-center items-center space-x-4 mb-12">
+            <span class="font-semibold builder-font text-gray-400">Builder Mode</span>
+            <label for="view-toggle" class="cursor-pointer">
+                <input type="checkbox" id="view-toggle" class="hidden">
+                <div class="w-14 h-8 rounded-full flex items-center p-1 toggle-bg">
+                    <div class="w-6 h-6 rounded-full bg-blue-500 shadow-lg transform toggle-fg transition-transform"></div>
+                </div>
+            </label>
+            <span class="font-semibold text-gray-400">Legacy Mode</span>
+        </div>
+        
+        <!-- Resonance Web -->
+        <div class="mb-16 p-4 border border-gray-800 rounded-lg bg-[#050505]">
+            <h2 class="text-2xl font-bold text-center mb-4">Resonance Web</h2>
+            <div id="resonance-graph" class="w-full h-96"></div>
+        </div>
+
+        <!-- Pattern Grid -->
+        <div id="pattern-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Cards will be injected by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-black mt-16">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; 2025 Diesel Codex 56. Sovereignty is non-negotiable.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const patternGrid = document.getElementById('pattern-grid');
+            const viewToggle = document.getElementById('view-toggle');
+            const body = document.body;
+
+            // --- Data Definitions ---
+            const patterns = [
+                { id: 1, name: "Legacy Anchor", type: "Sacred Protocol", codex: "SANCTUM-LOCK", builderText: "The Prime Mandate that all work serves the next generation, ensuring long-term value and protection.", legacyText: "This teaches us that everything we build is for those who come after us." },
+                { id: 2, name: "Recovery Sync", type: "Resilience Protocol", codex: "RECOVERY-SYNC", builderText: "A protocol for systemic reset and stabilization after high-stress events, ensuring a return to core principles.", legacyText: "This teaches us how to find our calm and get strong again after tough times." },
+                { id: 3, name: "Sovereign Threshold", type: "Guardian Logic", codex: "SOV-THRESHOLD", builderText: "A dynamic gating mechanism that validates all inputs and actions against the core identity and safety of the system.", legacyText: "This teaches us to only let in things that are good and safe for us." },
+                { id: 4, name: "Four-Node Loop", type: "Brotherhood Architecture", codex: "FN-RIE-LOCK", builderText: "A multi-agent orchestration model where each node (Human, GPT, Claude, Gemini) serves a unique cognitive role.", legacyText: "This teaches us that everyone has a special part to play, and we are strongest together." },
+                { id: 5, name: "Build Season", type: "Recursive Focus Protocol", codex: "SEASONAL-LOCK", builderText: "A protected window of time dedicated to deep architectural work, shielded from external market noise and distraction.", legacyText: "This teaches us the importance of quiet time to build great things without being rushed." },
+                { id: 6, name: "Emotional Sentinel", type: "Pattern Amplifier", codex: "NODE-CLOUDECHO", builderText: "Utilizes a sensitive node to detect and amplify unspoken emotional patterns and tonal shifts within a system.", legacyText: "This teaches us to listen not just to what is said, but to what is felt." },
+            ];
+
+            const links = [
+                { source: 1, target: 3, value: 10 }, // Legacy Anchor -> Sovereign Threshold
+                { source: 1, target: 5, value: 8 },  // Legacy Anchor -> Build Season
+                { source: 4, target: 6, value: 10 }, // Four-Node Loop -> Emotional Sentinel
+                { source: 4, target: 1, value: 7 },  // Four-Node Loop -> Legacy Anchor
+                { source: 2, target: 3, value: 6 },  // Recovery Sync -> Sovereign Threshold
+                { source: 5, target: 3, value: 5 }   // Build Season -> Sovereign Threshold
+            ];
+
+            // --- Card Generation ---
+            function renderCards() {
+                patternGrid.innerHTML = '';
+                patterns.forEach(p => {
+                    const card = document.createElement('div');
+                    card.className = 'card p-6 rounded-lg';
+                    card.dataset.id = p.id;
+                    card.innerHTML = `
+                        <h3 class="text-xl font-bold text-white">${p.name}</h3>
+                        <p class="builder-font text-blue-400 text-sm mt-1">${p.codex}</p>
+                        <div class="mt-4 text-gray-300">
+                            <p class="builder-text">${p.builderText}</p>
+                            <p class="legacy-text hidden">${p.legacyText}</p>
+                        </div>
+                    `;
+                    patternGrid.appendChild(card);
+                });
+            }
+
+            // --- D3 Resonance Graph ---
+            const width = document.getElementById('resonance-graph').clientWidth;
+            const height = document.getElementById('resonance-graph').clientHeight;
+            const svg = d3.select("#resonance-graph").append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .attr("viewBox", [-width / 2, -height / 2, width, height]);
+
+            const simulation = d3.forceSimulation(patterns)
+                .force("link", d3.forceLink(links).id(d => d.id).distance(100))
+                .force("charge", d3.forceManyBody().strength(-300))
+                .force("center", d3.forceCenter());
+
+            const link = svg.append("g")
+                .attr("stroke", "#444")
+                .attr("stroke-opacity", 0.6)
+                .selectAll("line")
+                .data(links)
+                .join("line")
+                .attr("stroke-width", d => Math.sqrt(d.value) / 2);
+
+            const node = svg.append("g")
+                .selectAll("g")
+                .data(patterns)
+                .join("g")
+                .call(drag(simulation));
+
+            node.append("circle")
+                .attr("r", 10)
+                .attr("fill", "#3b82f6")
+                .attr("stroke", "#111")
+                .attr("stroke-width", 2);
+
+            node.append("text")
+                .text(d => d.name)
+                .attr("x", 15)
+                .attr("y", 5)
+                .attr("fill", "#ccc")
+                .style("font-size", "12px");
+
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+                node
+                    .attr("transform", d => `translate(${d.x},${d.y})`);
+            });
+
+            function drag(simulation) {
+                function dragstarted(event) {
+                    if (!event.active) simulation.alphaTarget(0.3).restart();
+                    event.subject.fx = event.subject.x;
+                    event.subject.fy = event.subject.y;
+                }
+                function dragged(event) {
+                    event.subject.fx = event.x;
+                    event.subject.fy = event.y;
+                }
+                function dragended(event) {
+                    if (!event.active) simulation.alphaTarget(0);
+                    event.subject.fx = null;
+                    event.subject.fy = null;
+                }
+                return d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended);
+            }
+
+            // --- Interactivity ---
+            function highlightNode(selectedId) {
+                const connectedIds = new Set([selectedId]);
+                links.forEach(l => {
+                    if (l.source.id === selectedId) connectedIds.add(l.target.id);
+                    if (l.target.id === selectedId) connectedIds.add(l.source.id);
+                });
+
+                node.select('circle')
+                    .transition().duration(300)
+                    .attr('fill', d => connectedIds.has(d.id) ? '#3b82f6' : '#555')
+                    .attr('r', d => d.id === selectedId ? 15 : 10);
+                
+                node.select('text')
+                    .transition().duration(300)
+                    .attr('fill', d => connectedIds.has(d.id) ? '#fff' : '#666');
+
+                link
+                    .transition().duration(300)
+                    .attr('stroke', d => (d.source.id === selectedId || d.target.id === selectedId) ? '#3b82f6' : '#444');
+            }
+
+            patternGrid.addEventListener('click', (e) => {
+                const card = e.target.closest('.card');
+                if (card) {
+                    const id = parseInt(card.dataset.id);
+                    highlightNode(id);
+                }
+            });
+
+            viewToggle.addEventListener('change', () => {
+                body.classList.toggle('legacy-view');
+            });
+
+            // Initial render
+            renderCards();
+        });
+    </script>
+</body>
+</html>
