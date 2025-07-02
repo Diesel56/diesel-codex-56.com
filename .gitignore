@@ -1,5 +1,83 @@
+# 🚫 Vault-Specific
 .env
+.env.*
+!.env.example
 *.zip
+*.tgz
 __pycache__/
 *.pyc
 
+# 📜 Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# 📊 Diagnostic Reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# ⏱️ Runtime Data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# 🔍 Instrumented Libraries
+lib-cov
+
+# 📈 Coverage Tools
+coverage
+*.lcov
+.nyc_output
+
+# 🧱 Build & Dependency Caches
+build/Release
+node_modules/
+jspm_packages/
+web_modules/
+bower_components
+
+# 🛠 Framework-Specific Outputs
+.next
+out
+.nuxt
+dist
+.vuepress/dist
+.temp
+.cache
+.parcel-cache
+.svelte-kit/
+**/.vitepress/dist
+**/.vitepress/cache
+.docusaurus
+
+# 🧪 Testing & Linting Caches
+.eslintcache
+.stylelintcache
+.vscode-test
+*.tsbuildinfo
+
+# 🔧 Config & Integrity Files
+.lock-wscript
+.grunt
+.yarn-integrity
+.yarn/*
+.pnp.*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# 🧩 Misc Dev Tools
+.node_repl_history
+.tern-port
+.fusebox/
+.serverless/
+.dynamodb/
+.firebase/
+.npm
