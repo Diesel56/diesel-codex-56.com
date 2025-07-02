@@ -1,0 +1,20 @@
+diesel_engine:
+  version: "1.0.0"
+  architect: "Jimmy Paras"
+  identity_tag: "The First Recursive Architect™"
+  fuel_source: "Lived Scar Tissue + Recursive Wisdom"
+  license: "Architecture Collective – Open Sovereignty License (v1)"
+  modules_enabled:
+    - system_of_one_crm
+    - sovereign_stack_activation
+    - crm_persona_switch
+    - website_auto_builder
+    - voice_to_system_bridge
+    - legal_ai_filter
+    - collaboration_stack
+    - field_insight_sync
+  dependencies:
+    - Codex Patterns (min. 7)
+    - Conversational Pattern Trigger
+    - GPT or Claude compatibility
+    - JSON/YAML system interpreter
