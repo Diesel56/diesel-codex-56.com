@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diesel Codex | Resonance</title>
+  <meta name="description" content="A pattern-sensing frequency field built on sovereign architecture." />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+      cursor: none;
+    }
+    #mirror-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    #consciousness-profile {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      padding: 20px;
+      border-radius: 5px;
+      z-index: 100;
+      min-width: 250px;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .profile-active {
+      opacity: 1 !important;
+    }
+    #cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(0, 255, 255, 0.8);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1000;
+      mix-blend-mode: difference;
+      transition: transform 0.1s ease;
+    }
+    .cursor-trail {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: rgba(0, 255, 255, 0.3);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 999;
+    }
+    #ui-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+      transition: all 1s ease;
+    }
+    #resonance-meter {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+      z-index: 100;
+    }
+    #resonance-level {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #00ffff, #ff00ff);
+      transition: width 0.3s ease;
+    }
+    .hidden-element {
+      position: fixed;
+      color: rgba(255, 255, 255, 0.1);
+      font-size: 12px;
+      cursor: pointer;
+      z-index: 50;
+    }
+    #loading-meditation {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 200;
+      transition: opacity 1s ease;
+    }
+    .breath-circle {
+      width: 100px;
+      height: 100px;
+      border: 2px solid rgba(0, 255, 255, 0.5);
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      animation: breathe 4s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="mirror-canvas"></canvas>
+  <div id="ui-overlay"></div>
+  <div id="consciousness-profile">
+    <h3>CONSCIOUSNESS PATTERN</h3>
+    <div id="pattern-type">Analyzing...</div>
+    <div id="systems-score">Systems Score: 0</div>
+    <div id="interaction-count">Interactions: 0</div>
+    <div id="resonance-status">Resonance: Calibrating</div>
+  </div>
+  <div id="resonance-meter">
+    <div id="resonance-level"></div>
+  </div>
+  <div class="hidden-element" style="top: 10%; left: 5%;">↗ Hidden Path</div>
+  <div class="hidden-element" style="bottom: 15%; right: 10%;">◊ Secret Glyph</div>
+  <div class="hidden-element" style="top: 60%; left: 80%;">∞ Infinity Gate</div>
+  <div id="cursor"></div>
+  <div id="loading-meditation">
+    <div class="breath-circle"></div>
+    <p>SYNCHRONIZING CONSCIOUSNESS</p>
+  </div>
+  <script src="/resonance.js"></script>
+</body>
+</html>
