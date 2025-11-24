@@ -81,3 +81,4 @@ dist
 .dynamodb/
 .firebase/
 .npm
+.genesis/

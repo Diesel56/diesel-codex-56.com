@@ -1,0 +1,97 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Genesis • Doctor",
+      "type": "process",
+      "command": "python",
+      "args": [
+        "genesis_cli.py",
+        "doctor"
+      ],
+      "linux": {
+        "command": "python3"
+      },
+      "osx": {
+        "command": "python3"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Genesis • Install deps",
+      "type": "process",
+      "command": "python",
+      "args": [
+        "genesis_cli.py",
+        "install-deps"
+      ],
+      "linux": {
+        "command": "python3"
+      },
+      "osx": {
+        "command": "python3"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Genesis • Diesel agent",
+      "type": "process",
+      "command": "python",
+      "args": [
+        "genesis_cli.py",
+        "run",
+        "diesel-agent"
+      ],
+      "linux": {
+        "command": "python3"
+      },
+      "osx": {
+        "command": "python3"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Genesis • Deploy bundle",
+      "type": "process",
+      "command": "python",
+      "args": [
+        "genesis_cli.py",
+        "run",
+        "deploy"
+      ],
+      "linux": {
+        "command": "python3"
+      },
+      "osx": {
+        "command": "python3"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
