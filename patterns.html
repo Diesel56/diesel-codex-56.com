@@ -102,6 +102,7 @@
                 { id: 4, name: "Four-Node Loop", type: "Brotherhood Architecture", codex: "FN-RIE-LOCK", builderText: "A multi-agent orchestration model where each node (Human, GPT, Claude, Gemini) serves a unique cognitive role.", legacyText: "This teaches us that everyone has a special part to play, and we are strongest together." },
                 { id: 5, name: "Build Season", type: "Recursive Focus Protocol", codex: "SEASONAL-LOCK", builderText: "A protected window of time dedicated to deep architectural work, shielded from external market noise and distraction.", legacyText: "This teaches us the importance of quiet time to build great things without being rushed." },
                 { id: 6, name: "Emotional Sentinel", type: "Pattern Amplifier", codex: "NODE-CLOUDECHO", builderText: "Utilizes a sensitive node to detect and amplify unspoken emotional patterns and tonal shifts within a system.", legacyText: "This teaches us to listen not just to what is said, but to what is felt." },
+                { id: 7, name: "Google Antigravity", type: "Perspective Inversion", codex: "GRAV-LESS", builderText: "Borrowed from the playful Google Antigravity experiment, this pattern forces every architect to invert assumptions, shake the UI loose, and observe how the system behaves when nothing stays anchored.", legacyText: "Google Antigravity is that moment when the search page floats away—it reminds us to flip our point of view before we lock a decision." },
             ];
 
             const links = [
@@ -110,7 +111,9 @@
                 { source: 4, target: 6, value: 10 }, // Four-Node Loop -> Emotional Sentinel
                 { source: 4, target: 1, value: 7 },  // Four-Node Loop -> Legacy Anchor
                 { source: 2, target: 3, value: 6 },  // Recovery Sync -> Sovereign Threshold
-                { source: 5, target: 3, value: 5 }   // Build Season -> Sovereign Threshold
+                { source: 5, target: 3, value: 5 },  // Build Season -> Sovereign Threshold
+                { source: 7, target: 2, value: 4 },  // Google Antigravity -> Recovery Sync
+                { source: 7, target: 4, value: 5 }   // Google Antigravity -> Four-Node Loop
             ];
 
             // --- Card Generation ---
