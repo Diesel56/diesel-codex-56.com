@@ -1,0 +1,157 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}",
+        "DIESEL_ENGINE_CONFIG": "${workspaceFolder}/diesel_engine.yaml",
+        "GENESIS_CLI_HOME": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Diesel Agent",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/diesel-agent.py",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "args": [],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}",
+        "DIESEL_ENGINE_CONFIG": "${workspaceFolder}/diesel_engine.yaml"
+      }
+    },
+    {
+      "name": "Python: Voice Loop",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/voice-loop.py",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Whisper CLI",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/whisper-cli.py",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "args": [],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Deploy",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/deploy.py",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}",
+        "DIESEL_ENGINE_CONFIG": "${workspaceFolder}/diesel_engine.yaml"
+      }
+    },
+    {
+      "name": "Python: Module",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "enter.module.name",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Attach",
+      "type": "debugpy",
+      "request": "attach",
+      "connect": {
+        "host": "localhost",
+        "port": 5678
+      },
+      "pathMappings": [
+        {
+          "localRoot": "${workspaceFolder}",
+          "remoteRoot": "."
+        }
+      ],
+      "justMyCode": false
+    },
+    {
+      "name": "Node.js: Current File",
+      "type": "node",
+      "request": "launch",
+      "program": "${file}",
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "NODE_ENV": "development",
+        "GENESIS_CLI_HOME": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Node.js: Resonance Core",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/Diesel-Codex-56/resonance-core.js",
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    {
+      "name": "Chrome: Launch",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}",
+      "userDataDir": "${workspaceFolder}/.vscode/chrome-debug-profile"
+    },
+    {
+      "name": "Chrome: Attach",
+      "type": "chrome",
+      "request": "attach",
+      "port": 9222,
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Edge: Launch",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}",
+      "userDataDir": "${workspaceFolder}/.vscode/edge-debug-profile"
+    },
+    {
+      "name": "Firefox: Launch",
+      "type": "firefox",
+      "request": "launch",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}",
+      "profileDir": "${workspaceFolder}/.vscode/firefox-debug-profile"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack: Python + Browser",
+      "configurations": ["Python: Diesel Agent", "Chrome: Launch"],
+      "stopAll": true
+    },
+    {
+      "name": "Full Stack: Node + Browser",
+      "configurations": ["Node.js: Resonance Core", "Chrome: Launch"],
+      "stopAll": true
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "name": "Diesel Engine Workspace",
+  "version": "1.0.0",
+  "description": "Symbiotic workspace for Diesel Engine with Genesis CLI integration",
+  
+  "projects": [
+    {
+      "name": "Diesel Engine Core",
+      "path": "${workspaceFolder}",
+      "type": "python",
+      "entryPoints": [
+        "diesel-agent.py",
+        "diesel_agent_code.py",
+        "deploy.py"
+      ]
+    },
+    {
+      "name": "Diesel Codex",
+      "path": "${workspaceFolder}/Diesel-Codex-56",
+      "type": "web",
+      "entryPoints": [
+        "index.html",
+        "resonance.html",
+        "resonance-core.js"
+      ]
+    }
+  ],
+  
+  "environments": {
+    "development": {
+      "variables": {
+        "ENV": "development",
+        "DEBUG": "true",
+        "DIESEL_ENGINE_CONFIG": "${workspaceFolder}/diesel_engine.yaml",
+        "GENESIS_CLI_HOME": "${workspaceFolder}",
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    "staging": {
+      "variables": {
+        "ENV": "staging",
+        "DEBUG": "false",
+        "DIESEL_ENGINE_CONFIG": "${workspaceFolder}/diesel_engine.yaml",
+        "GENESIS_CLI_HOME": "${workspaceFolder}"
+      }
+    },
+    "production": {
+      "variables": {
+        "ENV": "production",
+        "DEBUG": "false",
+        "DIESEL_ENGINE_CONFIG": "${workspaceFolder}/diesel_engine.yaml",
+        "GENESIS_CLI_HOME": "${workspaceFolder}"
+      }
+    }
+  },
+  
+  "commands": {
+    "dev": "python diesel-agent.py",
+    "build": "genesis build --config diesel_engine.yaml",
+    "deploy": "python deploy.py",
+    "secure-deploy": "python secure_deploy.py",
+    "test": "pytest -v",
+    "lint": "flake8 . --max-line-length=88",
+    "format": "black . --line-length 88",
+    "typecheck": "mypy .",
+    "install": "pip install -r requirements.txt",
+    "server": "python -m http.server 8080"
+  },
+  
+  "ai": {
+    "context": {
+      "files": [
+        "diesel_engine.yaml",
+        "requirements.txt",
+        "README.md"
+      ],
+      "patterns": [
+        "**/*.py",
+        "**/*.js",
+        "**/*.html",
+        "**/*.css"
+      ]
+    },
+    "ignore": [
+      "**/test_*",
+      "**/*_test.py",
+      "**/mock_*",
+      "**/.git/**",
+      "**/node_modules/**"
+    ],
+    "prompts": {
+      "system": "You are working with the Diesel Engine system, a sovereign stack with multiple modules including CRM, voice bridge, and legal AI filter. Use the diesel_engine.yaml configuration as reference.",
+      "context": "This workspace integrates with Genesis CLI and supports cross-platform deployment. Consider Windows, Linux, and both 32/64-bit architectures."
+    }
+  },
+  
+  "sync": {
+    "vscode": true,
+    "claude": true,
+    "genesis": true,
+    "git": {
+      "autoCommit": false,
+      "autoPush": false,
+      "branch": "main"
+    }
+  }
+}

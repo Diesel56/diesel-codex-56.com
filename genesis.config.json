@@ -1,0 +1,226 @@
+{
+  "name": "Diesel Genesis Integration",
+  "version": "1.0.0",
+  "description": "Genesis CLI configuration for Diesel Engine ecosystem",
+  
+  "cli": {
+    "version": "latest",
+    "autoUpdate": true,
+    "telemetry": false,
+    "debug": false,
+    "logLevel": "info",
+    "timeout": 30000
+  },
+  
+  "engines": {
+    "diesel": {
+      "configFile": "diesel_engine.yaml",
+      "version": "1.0.0",
+      "modules": [
+        "system_of_one_crm",
+        "sovereign_stack_activation",
+        "crm_persona_switch",
+        "website_auto_builder",
+        "voice_to_system_bridge",
+        "legal_ai_filter",
+        "collaboration_stack",
+        "field_insight_sync"
+      ]
+    }
+  },
+  
+  "editors": {
+    "vscode": {
+      "enabled": true,
+      "settingsPath": ".vscode/settings.json",
+      "extensionsPath": ".vscode/extensions.json",
+      "autoSync": true
+    },
+    "cursor": {
+      "enabled": true,
+      "settingsPath": ".cursor/settings.json",
+      "workspacePath": ".cursor/workspace.json",
+      "autoSync": true
+    },
+    "claude": {
+      "enabled": true,
+      "apiVersion": "2024-01",
+      "model": "claude-3-opus-20240229",
+      "autoSync": true
+    }
+  },
+  
+  "platforms": {
+    "windows": {
+      "x64": {
+        "enabled": true,
+        "runtime": "node",
+        "shell": "powershell",
+        "pythonPath": "python",
+        "nodePath": "node",
+        "env": {
+          "GENESIS_PLATFORM": "win32-x64"
+        }
+      },
+      "x86": {
+        "enabled": true,
+        "runtime": "node",
+        "shell": "cmd",
+        "pythonPath": "python",
+        "nodePath": "node",
+        "env": {
+          "GENESIS_PLATFORM": "win32-x86"
+        }
+      }
+    },
+    "linux": {
+      "x64": {
+        "enabled": true,
+        "runtime": "node",
+        "shell": "bash",
+        "pythonPath": "python3",
+        "nodePath": "node",
+        "env": {
+          "GENESIS_PLATFORM": "linux-x64"
+        }
+      },
+      "x86": {
+        "enabled": true,
+        "runtime": "node",
+        "shell": "bash",
+        "pythonPath": "python3",
+        "nodePath": "node",
+        "env": {
+          "GENESIS_PLATFORM": "linux-x86"
+        }
+      }
+    },
+    "darwin": {
+      "x64": {
+        "enabled": true,
+        "runtime": "node",
+        "shell": "zsh",
+        "pythonPath": "python3",
+        "nodePath": "node",
+        "env": {
+          "GENESIS_PLATFORM": "darwin-x64"
+        }
+      },
+      "arm64": {
+        "enabled": true,
+        "runtime": "node",
+        "shell": "zsh",
+        "pythonPath": "python3",
+        "nodePath": "node",
+        "env": {
+          "GENESIS_PLATFORM": "darwin-arm64"
+        }
+      }
+    }
+  },
+  
+  "commands": {
+    "init": {
+      "description": "Initialize Genesis CLI in the workspace",
+      "steps": [
+        "check-requirements",
+        "install-dependencies",
+        "create-structure",
+        "configure-editors"
+      ]
+    },
+    "build": {
+      "description": "Build the Diesel Engine project",
+      "steps": [
+        "validate-config",
+        "compile-modules",
+        "bundle-assets",
+        "generate-manifests"
+      ]
+    },
+    "deploy": {
+      "description": "Deploy to target environment",
+      "steps": [
+        "pre-deploy-checks",
+        "build",
+        "upload-artifacts",
+        "post-deploy-verification"
+      ]
+    },
+    "sync": {
+      "description": "Sync configurations across all editors",
+      "steps": [
+        "read-genesis-config",
+        "update-vscode-settings",
+        "update-cursor-settings",
+        "update-claude-settings"
+      ]
+    },
+    "validate": {
+      "description": "Validate all configurations",
+      "steps": [
+        "check-diesel-config",
+        "validate-modules",
+        "test-editor-integration",
+        "verify-platform-support"
+      ]
+    }
+  },
+  
+  "hooks": {
+    "pre-commit": [
+      "genesis validate",
+      "genesis sync"
+    ],
+    "post-commit": [],
+    "pre-push": [
+      "genesis build",
+      "genesis validate"
+    ],
+    "post-merge": [
+      "genesis sync"
+    ]
+  },
+  
+  "dependencies": {
+    "node": ">=14.0.0",
+    "python": ">=3.8.0",
+    "git": ">=2.0.0"
+  },
+  
+  "integrations": {
+    "git": {
+      "enabled": true,
+      "hooks": true,
+      "autoCommit": false
+    },
+    "docker": {
+      "enabled": false,
+      "image": "diesel-genesis:latest",
+      "volumes": {
+        "${PWD}": "/workspace"
+      }
+    },
+    "ci": {
+      "enabled": true,
+      "provider": "github-actions",
+      "config": ".github/workflows/genesis.yml"
+    }
+  },
+  
+  "paths": {
+    "workspace": "${workspaceFolder}",
+    "cache": "${workspaceFolder}/.genesis/cache",
+    "logs": "${workspaceFolder}/.genesis/logs",
+    "temp": "${workspaceFolder}/.genesis/temp",
+    "artifacts": "${workspaceFolder}/.genesis/artifacts"
+  },
+  
+  "env": {
+    "GENESIS_HOME": "${workspaceFolder}",
+    "DIESEL_ENGINE_CONFIG": "${workspaceFolder}/diesel_engine.yaml",
+    "RESONANCE_PATH": "${workspaceFolder}/Diesel-Codex-56",
+    "NODE_ENV": "development",
+    "PYTHONPATH": "${workspaceFolder}"
+  }
+}

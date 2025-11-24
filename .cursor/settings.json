@@ -1,0 +1,161 @@
+{
+  "cursor.aiEnabled": true,
+  "cursor.cpp.enabled": true,
+  "cursor.autoSuggestEnabled": true,
+  "cursor.copilotEnabled": true,
+  "cursor.chatEnabled": true,
+  "cursor.commandPaletteEnabled": true,
+  "cursor.contextWindow": 8192,
+  "cursor.maxTokens": 4096,
+  "cursor.temperature": 0.7,
+  "cursor.topP": 1.0,
+  "cursor.frequencyPenalty": 0,
+  "cursor.presencePenalty": 0,
+  "cursor.stopSequences": [],
+  
+  "cursor.models": {
+    "default": "gpt-4",
+    "chat": "gpt-4",
+    "edit": "gpt-4",
+    "complete": "gpt-3.5-turbo"
+  },
+  
+  "cursor.providers": {
+    "openai": {
+      "enabled": true,
+      "apiKey": "",
+      "organization": ""
+    },
+    "anthropic": {
+      "enabled": true,
+      "apiKey": "",
+      "model": "claude-3-opus-20240229"
+    },
+    "custom": {
+      "enabled": false,
+      "endpoint": "",
+      "apiKey": "",
+      "headers": {}
+    }
+  },
+  
+  "cursor.features": {
+    "codebase": {
+      "enabled": true,
+      "indexing": true,
+      "searchDepth": 10,
+      "maxFiles": 1000
+    },
+    "docs": {
+      "enabled": true,
+      "sources": ["official", "community", "custom"]
+    },
+    "chat": {
+      "enabled": true,
+      "history": true,
+      "maxHistory": 100,
+      "streaming": true
+    },
+    "edit": {
+      "enabled": true,
+      "multiFile": true,
+      "preview": true,
+      "autoFormat": true
+    },
+    "terminal": {
+      "enabled": true,
+      "autoComplete": true,
+      "explain": true
+    },
+    "debug": {
+      "enabled": true,
+      "autoFix": true,
+      "explain": true
+    }
+  },
+  
+  "cursor.shortcuts": {
+    "chat": "Ctrl+K",
+    "edit": "Ctrl+L",
+    "accept": "Tab",
+    "reject": "Escape",
+    "nextSuggestion": "Alt+]",
+    "previousSuggestion": "Alt+[",
+    "toggleAI": "Ctrl+Shift+A"
+  },
+  
+  "cursor.integrations": {
+    "vscode": {
+      "enabled": true,
+      "syncSettings": true,
+      "syncExtensions": true,
+      "syncKeybindings": true
+    },
+    "genesis": {
+      "enabled": true,
+      "cliPath": "${workspaceFolder}/genesis-cli",
+      "autoSync": true,
+      "config": "${workspaceFolder}/diesel_engine.yaml"
+    },
+    "diesel": {
+      "enabled": true,
+      "enginePath": "${workspaceFolder}/diesel_engine.yaml",
+      "modulesPath": "${workspaceFolder}/Diesel-Codex-56",
+      "autoLoad": true
+    }
+  },
+  
+  "cursor.workspace": {
+    "root": "${workspaceFolder}",
+    "exclude": [
+      "**/node_modules/**",
+      "**/.git/**",
+      "**/__pycache__/**",
+      "**/*.pyc",
+      "**/venv/**",
+      "**/.venv/**"
+    ],
+    "include": [
+      "**/*.py",
+      "**/*.js",
+      "**/*.ts",
+      "**/*.jsx",
+      "**/*.tsx",
+      "**/*.html",
+      "**/*.css",
+      "**/*.json",
+      "**/*.yaml",
+      "**/*.yml",
+      "**/*.md"
+    ]
+  },
+  
+  "cursor.privacy": {
+    "telemetry": false,
+    "analytics": false,
+    "crashReports": false,
+    "shareCode": false,
+    "localProcessing": true
+  },
+  
+  "cursor.performance": {
+    "indexing": {
+      "parallel": true,
+      "threads": 4,
+      "chunkSize": 1000
+    },
+    "cache": {
+      "enabled": true,
+      "size": "1GB",
+      "ttl": 86400
+    }
+  },
+  
+  "cursor.experimental": {
+    "multiModal": false,
+    "codeGeneration": true,
+    "refactoring": true,
+    "testing": true,
+    "documentation": true
+  }
+}
