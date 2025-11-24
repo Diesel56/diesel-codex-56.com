@@ -1,0 +1,86 @@
+{
+  "// Cursor-Specific Symbiotic Configuration": "Integrated with VS Code, Claude Code, and Genesis CLI",
+  
+  "// Inherit VS Code Settings": {
+    "cursor.general.inheritVSCodeSettings": true,
+    "cursor.general.syncWithVSCode": true
+  },
+  
+  "// AI Model Configuration": {
+    "cursor.ai.model": "claude-4.5-sonnet",
+    "cursor.ai.enableThinking": true,
+    "cursor.ai.contextWindow": "200k",
+    "cursor.ai.autoContext": true,
+    "cursor.ai.codebaseIndexing": true,
+    "cursor.ai.enableBackground": true
+  },
+  
+  "// Cross-Editor Integration": {
+    "cursor.crossEditor.enabled": true,
+    "cursor.crossEditor.syncWith": ["vscode", "claude-code"],
+    "cursor.crossEditor.shareContext": true,
+    "cursor.crossEditor.shareHistory": true,
+    "cursor.crossEditor.shareSettings": true
+  },
+  
+  "// Genesis CLI Integration": {
+    "cursor.genesis.enabled": true,
+    "cursor.genesis.autoInit": true,
+    "cursor.genesis.syncOnSave": true,
+    "cursor.genesis.watchMode": true,
+    "cursor.genesis.cli.detectArchitecture": true,
+    "cursor.genesis.cli.fallback": {
+      "windows.x64": "%USERPROFILE%\\.genesis\\bin\\genesis-x64.exe",
+      "windows.x86": "%USERPROFILE%\\.genesis\\bin\\genesis-x86.exe",
+      "linux.x64": "$HOME/.genesis/bin/genesis"
+    }
+  },
+  
+  "// Composer and Chat Integration": {
+    "cursor.composer.enabled": true,
+    "cursor.composer.shareWithChat": true,
+    "cursor.chat.contextInheritance": true,
+    "cursor.chat.crossSessionMemory": true
+  },
+  
+  "// Architecture-Aware Settings": {
+    "cursor.system.detectArchitecture": true,
+    "cursor.system.optimizeForArch": true,
+    "cursor.build.targetArchitectures": ["x86", "x64", "arm64"]
+  },
+  
+  "// Codebase Intelligence": {
+    "cursor.codebase.indexOnStartup": true,
+    "cursor.codebase.deepScan": true,
+    "cursor.codebase.shareIndex": {
+      "withVSCode": true,
+      "withClaudeCode": true,
+      "withGenesisCLI": true
+    }
+  },
+  
+  "// Terminal Integration": {
+    "cursor.terminal.enhancedIntegration": true,
+    "cursor.terminal.aiAssist": true,
+    "cursor.terminal.syncCommands": true
+  },
+  
+  "// File Watching and Sync": {
+    "cursor.files.watchExternal": true,
+    "cursor.files.syncDelay": 500,
+    "cursor.files.crossEditorSync": true,
+    "cursor.files.genesisSync": true
+  },
+  
+  "// Python-Specific Enhancements": {
+    "cursor.python.enableEnhancedIntelligence": true,
+    "cursor.python.detectVirtualEnv": true,
+    "cursor.python.shareWithVSCode": true
+  },
+  
+  "// Performance Optimization": {
+    "cursor.performance.enableMultiThreading": true,
+    "cursor.performance.cacheStrategy": "aggressive",
+    "cursor.performance.backgroundProcessing": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "cursor.cursor-ai",
+    "cursor.composer",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "github.copilot",
+    "anthropic.claude-code",
+    "genesis.genesis-cli"
+  ],
+  "sync": {
+    "withVSCode": true,
+    "withClaudeCode": true,
+    "bidirectional": true
+  }
+}

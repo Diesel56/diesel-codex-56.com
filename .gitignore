@@ -81,3 +81,11 @@ dist
 .dynamodb/
 .firebase/
 .npm
+
+# 🔧 Genesis CLI & Editor Cache
+.genesis/cache/
+.genesis/*.log
+.genesis/sync-manifest.json
+.vscode/.ropeproject/
+.cursor/cache/
+*.genesis-lock

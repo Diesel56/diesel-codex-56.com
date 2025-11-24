@@ -1,0 +1,144 @@
+{
+  "// Cross-Platform & Architecture Configuration": "VS Code, Cursor, Claude Code Symbiotic Integration",
+  
+  "// Python Configuration": {
+    "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.extraPaths": [
+      "${workspaceFolder}",
+      "${workspaceFolder}/Diesel-Codex-56"
+    ]
+  },
+  
+  "// Terminal Configuration for Cross-Platform": {
+    "terminal.integrated.profiles.windows": {
+      "PowerShell": {
+        "source": "PowerShell",
+        "icon": "terminal-powershell",
+        "args": ["-NoLogo"]
+      },
+      "Command Prompt": {
+        "path": [
+          "${env:windir}\\Sysnative\\cmd.exe",
+          "${env:windir}\\System32\\cmd.exe"
+        ],
+        "args": [],
+        "icon": "terminal-cmd"
+      },
+      "Git Bash": {
+        "path": [
+          "C:\\Program Files\\Git\\bin\\bash.exe",
+          "C:\\Program Files (x86)\\Git\\bin\\bash.exe"
+        ],
+        "icon": "terminal-bash"
+      }
+    },
+    "terminal.integrated.profiles.linux": {
+      "bash": {
+        "path": "bash",
+        "icon": "terminal-bash"
+      }
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.env.windows": {
+      "GENESIS_CLI_PATH": "${env:USERPROFILE}\\.genesis\\bin",
+      "ARCH": "${env:PROCESSOR_ARCHITECTURE}"
+    },
+    "terminal.integrated.env.linux": {
+      "GENESIS_CLI_PATH": "${env:HOME}/.genesis/bin"
+    }
+  },
+  
+  "// Editor Synchronization": {
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/*/**": true,
+      "**/.hg/store/**": true,
+      "**/__pycache__/**": true,
+      "**/venv/**": false,
+      "**/.genesis/cache/**": true
+    },
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  
+  "// Genesis CLI Integration": {
+    "genesis.enabled": true,
+    "genesis.autoSync": true,
+    "genesis.syncInterval": 5000,
+    "genesis.cli.path.windows.x64": "${env:USERPROFILE}\\.genesis\\bin\\genesis-x64.exe",
+    "genesis.cli.path.windows.x86": "${env:USERPROFILE}\\.genesis\\bin\\genesis-x86.exe",
+    "genesis.cli.path.linux": "${env:HOME}/.genesis/bin/genesis",
+    "genesis.workspace.shared": true,
+    "genesis.crossEditor.enabled": true
+  },
+  
+  "// AI Assistant Integration (Cursor, Claude, Copilot)": {
+    "github.copilot.enable": {
+      "*": true,
+      "yaml": true,
+      "plaintext": true,
+      "markdown": true,
+      "python": true
+    },
+    "cursor.ai.enabled": true,
+    "cursor.ai.model": "claude-4.5-sonnet",
+    "cursor.ai.contextSharing": true,
+    "claude.code.enabled": true,
+    "claude.code.syncWithCursor": true
+  },
+  
+  "// Symbiotic Workspace Settings": {
+    "workbench.settings.enableNaturalLanguageSearch": true,
+    "workbench.settings.openDefaultSettings": true,
+    "workbench.editor.sharedViewState": true,
+    "workbench.activityBar.visible": true
+  },
+  
+  "// Code Intelligence Sharing": {
+    "editor.suggest.showWords": true,
+    "editor.suggest.shareSuggestSelections": true,
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    },
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "on",
+    "editor.wordBasedSuggestions": "allDocuments"
+  },
+  
+  "// Language-Specific Settings": {
+    "[python]": {
+      "editor.defaultFormatter": "ms-python.python",
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+      }
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[yaml]": {
+      "editor.insertSpaces": true,
+      "editor.tabSize": 2,
+      "editor.autoIndent": "advanced"
+    }
+  },
+  
+  "// Architecture-Specific Build Tasks": {
+    "task.autoDetect": "on",
+    "task.problemMatchers.enableBackgroundActivityTracking": true
+  },
+  
+  "// Extension Recommendations Sync": {
+    "extensions.autoCheckUpdates": true,
+    "extensions.autoUpdate": true,
+    "extensions.ignoreRecommendations": false
+  }
+}

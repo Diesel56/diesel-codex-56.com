@@ -1,2 +1,3 @@
 SpeechRecognition
 openai-whisper
+watchdog>=3.0.0

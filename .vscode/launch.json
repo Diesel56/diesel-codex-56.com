@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Current File (Cross-Platform)",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "GENESIS_CLI_ENABLED": "true",
+        "CROSS_EDITOR_SYNC": "true"
+      }
+    },
+    {
+      "name": "Diesel Agent",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/diesel-agent.py",
+      "console": "integratedTerminal",
+      "args": []
+    },
+    {
+      "name": "Deploy Script",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/deploy.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Whisper CLI",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/whisper-cli.py",
+      "console": "integratedTerminal"
+    }
+  ]
+}

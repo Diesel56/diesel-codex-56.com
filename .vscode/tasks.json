@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Genesis CLI: Sync Workspace",
+      "type": "shell",
+      "command": "genesis",
+      "args": ["sync", "--workspace", "${workspaceFolder}"],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "windows": {
+        "command": "genesis-${env:PROCESSOR_ARCHITECTURE}.exe"
+      },
+      "linux": {
+        "command": "genesis"
+      }
+    },
+    {
+      "label": "Genesis CLI: Cross-Editor Sync",
+      "type": "shell",
+      "command": "genesis",
+      "args": ["cross-sync", "--editors", "vscode,cursor,claude"],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "windows": {
+        "command": "genesis-${env:PROCESSOR_ARCHITECTURE}.exe"
+      },
+      "linux": {
+        "command": "genesis"
+      }
+    },
+    {
+      "label": "Python: Install Dependencies (Cross-Platform)",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "pip", "install", "-r", "requirements.txt"],
+      "problemMatcher": [],
+      "windows": {
+        "command": "python.exe"
+      },
+      "linux": {
+        "command": "python3"
+      }
+    },
+    {
+      "label": "Setup Genesis CLI",
+      "type": "shell",
+      "command": "${workspaceFolder}/.genesis/setup.sh",
+      "problemMatcher": [],
+      "windows": {
+        "command": "powershell.exe",
+        "args": ["-File", "${workspaceFolder}\\.genesis\\setup.ps1"]
+      },
+      "linux": {
+        "command": "bash",
+        "args": ["${workspaceFolder}/.genesis/setup.sh"]
+      }
+    }
+  ]
+}

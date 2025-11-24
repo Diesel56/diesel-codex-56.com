@@ -1,0 +1,140 @@
+# Genesis CLI Cross-Platform Configuration
+# Symbiotic integration with Cursor, VS Code, and Claude Code
+
+version: "1.0"
+name: "workspace-symbiotic-config"
+
+# Architecture Detection and Configuration
+architecture:
+  auto_detect: true
+  supported:
+    - windows-x86
+    - windows-x64
+    - linux-x64
+    - linux-arm64
+  fallback: "detect-runtime"
+
+# Editor Integration
+editors:
+  vscode:
+    enabled: true
+    config_path: "${WORKSPACE}/.vscode"
+    sync_settings: true
+    sync_extensions: true
+    watch_changes: true
+    
+  cursor:
+    enabled: true
+    config_path: "${WORKSPACE}/.cursor"
+    sync_settings: true
+    inherit_from_vscode: true
+    ai_model: "claude-4.5-sonnet"
+    share_context: true
+    
+  claude_code:
+    enabled: true
+    sync_with_cursor: true
+    share_context: true
+    bidirectional: true
+
+# Cross-Editor Synchronization
+sync:
+  enabled: true
+  mode: "bidirectional"
+  interval: 5  # seconds
+  items:
+    - settings
+    - extensions
+    - tasks
+    - launch_configs
+    - snippets
+    - keybindings
+  conflict_resolution: "merge"
+  
+# Platform-Specific Paths
+paths:
+  windows:
+    x86:
+      cli: "%USERPROFILE%\\.genesis\\bin\\genesis-x86.exe"
+      config: "%USERPROFILE%\\.genesis\\config"
+      cache: "%USERPROFILE%\\.genesis\\cache"
+    x64:
+      cli: "%USERPROFILE%\\.genesis\\bin\\genesis-x64.exe"
+      config: "%USERPROFILE%\\.genesis\\config"
+      cache: "%USERPROFILE%\\.genesis\\cache"
+      
+  linux:
+    x64:
+      cli: "$HOME/.genesis/bin/genesis"
+      config: "$HOME/.genesis/config"
+      cache: "$HOME/.genesis/cache"
+    arm64:
+      cli: "$HOME/.genesis/bin/genesis-arm64"
+      config: "$HOME/.genesis/config"
+      cache: "$HOME/.genesis/cache"
+
+# Workspace Settings
+workspace:
+  root: "${WORKSPACE}"
+  shared_state: true
+  cross_editor_state: true
+  persist_history: true
+  history_limit: 1000
+
+# AI Integration
+ai:
+  enabled: true
+  providers:
+    - cursor
+    - claude
+    - copilot
+  share_context: true
+  context_window: 200000
+  auto_context: true
+
+# Build and Task Configuration
+build:
+  auto_detect_arch: true
+  cross_compile: true
+  targets:
+    - platform: windows
+      architectures: [x86, x64]
+    - platform: linux
+      architectures: [x64, arm64]
+
+# Python Configuration
+python:
+  auto_detect_venv: true
+  venv_paths:
+    - "${WORKSPACE}/venv"
+    - "${WORKSPACE}/.venv"
+  requirements_file: "${WORKSPACE}/requirements.txt"
+  share_interpreter: true
+
+# File Watching
+watch:
+  enabled: true
+  paths:
+    - "${WORKSPACE}"
+  ignore:
+    - "**/.git/**"
+    - "**/node_modules/**"
+    - "**/__pycache__/**"
+    - "**/.genesis/cache/**"
+  events:
+    - create
+    - modify
+    - delete
+  debounce: 500  # milliseconds
+
+# Logging and Debugging
+logging:
+  level: "info"
+  file: "${WORKSPACE}/.genesis/genesis.log"
+  rotate: true
+  max_size: "10MB"
+  
+debug:
+  enabled: false
+  verbose: false
+  trace_sync: false
