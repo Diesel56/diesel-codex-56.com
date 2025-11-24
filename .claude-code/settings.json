@@ -1,0 +1,4 @@
+{
+  "claude.genesis.cli.enabled": true,
+  "claude.genesis.cli.symbioticMode": true
+}

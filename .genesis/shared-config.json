@@ -1,0 +1,173 @@
+{
+  "$schema": "https://schemas.genesis.diesel/ide-config.json",
+  "version": "1.0.0",
+  "name": "Diesel Genesis Engine - Shared IDE Configuration",
+  "description": "Cross-platform, cross-IDE configuration for symbiotic dynamic development",
+  
+  "platforms": {
+    "windows": {
+      "32-bit": {
+        "python": {
+          "command": "python",
+          "detectionPaths": [
+            "C:\\Python27\\python.exe",
+            "C:\\Python3\\python.exe",
+            "${env:PYTHON_HOME}\\python.exe"
+          ]
+        },
+        "node": {
+          "command": "node",
+          "detectionPaths": [
+            "C:\\Program Files (x86)\\nodejs\\node.exe"
+          ]
+        },
+        "terminal": {
+          "default": "cmd",
+          "profiles": ["cmd", "powershell", "git-bash"]
+        }
+      },
+      "64-bit": {
+        "python": {
+          "command": "python",
+          "detectionPaths": [
+            "C:\\Python39\\python.exe",
+            "C:\\Python310\\python.exe",
+            "C:\\Python311\\python.exe",
+            "${env:PYTHON_HOME}\\python.exe"
+          ]
+        },
+        "node": {
+          "command": "node",
+          "detectionPaths": [
+            "C:\\Program Files\\nodejs\\node.exe"
+          ]
+        },
+        "terminal": {
+          "default": "PowerShell",
+          "profiles": ["PowerShell", "cmd", "git-bash", "wsl"]
+        }
+      }
+    },
+    "linux": {
+      "32-bit": {
+        "python": {
+          "command": "python3",
+          "detectionPaths": [
+            "/usr/bin/python3",
+            "/usr/local/bin/python3"
+          ]
+        },
+        "node": {
+          "command": "node",
+          "detectionPaths": [
+            "/usr/bin/node",
+            "/usr/local/bin/node"
+          ]
+        }
+      },
+      "64-bit": {
+        "python": {
+          "command": "python3",
+          "detectionPaths": [
+            "/usr/bin/python3",
+            "/usr/local/bin/python3",
+            "${HOME}/.local/bin/python3"
+          ]
+        },
+        "node": {
+          "command": "node",
+          "detectionPaths": [
+            "/usr/bin/node",
+            "/usr/local/bin/node",
+            "${HOME}/.nvm/versions/node/*/bin/node"
+          ]
+        }
+      }
+    },
+    "darwin": {
+      "64-bit": {
+        "python": {
+          "command": "python3",
+          "detectionPaths": [
+            "/usr/local/bin/python3",
+            "/opt/homebrew/bin/python3",
+            "${HOME}/.pyenv/shims/python3"
+          ]
+        },
+        "node": {
+          "command": "node",
+          "detectionPaths": [
+            "/usr/local/bin/node",
+            "/opt/homebrew/bin/node",
+            "${HOME}/.nvm/versions/node/*/bin/node"
+          ]
+        }
+      }
+    }
+  },
+  
+  "ide": {
+    "vscode": {
+      "enabled": true,
+      "configPath": ".vscode/settings.json",
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "redhat.vscode-yaml"
+      ]
+    },
+    "cursor": {
+      "enabled": true,
+      "configPath": ".cursor/settings.json",
+      "features": [
+        "ai.completion",
+        "ai.contextAware",
+        "genesis.cli.integration"
+      ]
+    },
+    "claudeCode": {
+      "enabled": true,
+      "configPath": ".claude-code/settings.json",
+      "features": [
+        "ai.completion",
+        "ai.contextAware",
+        "genesis.cli.integration"
+      ]
+    }
+  },
+  
+  "symbiotic": {
+    "enabled": true,
+    "syncInterval": 5000,
+    "autoDetect": true,
+    "sharedSettings": [
+      "python.defaultInterpreterPath",
+      "python.analysis.typeCheckingMode",
+      "python.formatting.provider",
+      "editor.tabSize",
+      "editor.insertSpaces",
+      "files.associations",
+      "yaml.schemas",
+      "terminal.integrated.defaultProfile.windows",
+      "terminal.integrated.profiles.windows"
+    ]
+  },
+  
+  "genesis": {
+    "cli": {
+      "enabled": true,
+      "path": "${workspaceFolder}/genesis-cli",
+      "windows": "${workspaceFolder}/genesis-cli.bat",
+      "unix": "${workspaceFolder}/genesis-cli.sh",
+      "autoDetect": true
+    },
+    "commands": {
+      "init": "Initialize Genesis CLI",
+      "agent.run": "Run Diesel Agent",
+      "deploy": "Deploy Genesis Engine",
+      "status": "Show status information",
+      "sync": "Sync IDE configurations"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "engine": "Diesel Genesis Engine",
+  "workspace": "${workspaceFolder}",
+  "platform": {
+    "os": "${platform}",
+    "arch": "${arch}",
+    "isWindows": "${isWindows}",
+    "is32Bit": "${is32Bit}",
+    "is64Bit": "${is64Bit}"
+  },
+  "ide": {
+    "vscode": {
+      "enabled": true,
+      "configPath": ".vscode/settings.json"
+    },
+    "cursor": {
+      "enabled": true,
+      "configPath": ".cursor/settings.json"
+    },
+    "claudeCode": {
+      "enabled": true,
+      "configPath": ".claude-code/settings.json"
+    }
+  },
+  "symbiotic": {
+    "enabled": true,
+    "syncInterval": 5000,
+    "autoDetect": true
+  }
+}

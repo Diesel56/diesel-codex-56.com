@@ -81,3 +81,16 @@ dist
 .dynamodb/
 .firebase/
 .npm
+
+# 🎯 Genesis CLI - Track configs, ignore runtime
+.genesis/cache/
+.genesis/logs/
+!.genesis/config.json
+!.genesis/platform-config.json
+!.genesis/shared-config.json
+!.genesis/symbiotic-sync.js
+
+# 🔧 IDE Configurations - Track all config files
+# .vscode/ - Tracked
+# .cursor/ - Tracked
+# .claude-code/ - Tracked

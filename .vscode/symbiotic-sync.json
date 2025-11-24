@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "name": "Symbiotic Dynamic Sync",
+  "description": "Synchronizes configurations across VS Code, Cursor, and Claude Code",
+  "enabled": true,
+  "syncInterval": 5000,
+  "targets": [
+    {
+      "ide": "cursor",
+      "configPath": ".cursor/settings.json",
+      "enabled": true
+    },
+    {
+      "ide": "claude-code",
+      "configPath": ".claude-code/settings.json",
+      "enabled": true
+    }
+  ],
+  "sharedSettings": [
+    "python.defaultInterpreterPath",
+    "python.analysis.typeCheckingMode",
+    "python.formatting.provider",
+    "editor.tabSize",
+    "editor.insertSpaces",
+    "files.associations",
+    "yaml.schemas",
+    "terminal.integrated.defaultProfile.windows",
+    "terminal.integrated.profiles.windows"
+  ]
+}

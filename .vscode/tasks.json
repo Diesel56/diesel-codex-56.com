@@ -1,0 +1,104 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Genesis CLI: Initialize",
+      "type": "shell",
+      "command": "${config:genesis.cli.path}",
+      "args": ["init"],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Genesis CLI: Run Agent",
+      "type": "shell",
+      "command": "${workspaceFolder}/genesis-cli",
+      "args": ["agent", "run"],
+      "windows": {
+        "command": "${workspaceFolder}/genesis-cli.exe",
+        "args": ["agent", "run"]
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Python: Run Diesel Agent",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["diesel-agent.py"],
+      "windows": {
+        "command": "${command:python.interpreterPath}",
+        "args": ["diesel-agent.py"]
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Python: Run Voice Loop",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["voice-loop.py"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Python: Create Codex",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["whisper-cli.py"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Python: Install Dependencies",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "pip", "install", "-r", "requirements.txt"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Genesis CLI: Deploy",
+      "type": "shell",
+      "command": "${workspaceFolder}/genesis-cli",
+      "args": ["deploy"],
+      "windows": {
+        "command": "${workspaceFolder}/genesis-cli.exe",
+        "args": ["deploy"]
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Diesel Agent",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/diesel-agent.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Voice Loop",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/voice-loop.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Whisper CLI",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/whisper-cli.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Vault Viewer",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/vault_viewer.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Deploy Script",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/deploy.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Genesis CLI: Debug",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/genesis-cli.js",
+      "console": "integratedTerminal",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    }
+  ]
+}

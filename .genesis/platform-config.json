@@ -1,0 +1,115 @@
+{
+  "windows": {
+    "32-bit": {
+      "python": {
+        "command": "python",
+        "paths": [
+          "C:\\Python27\\python.exe",
+          "C:\\Python3\\python.exe",
+          "${env:PYTHON_HOME}\\python.exe"
+        ],
+        "fallback": "python"
+      },
+      "node": {
+        "command": "node",
+        "paths": [
+          "C:\\Program Files (x86)\\nodejs\\node.exe",
+          "${env:NODE_HOME}\\node.exe"
+        ],
+        "fallback": "node"
+      },
+      "terminal": {
+        "default": "cmd",
+        "profiles": ["cmd", "powershell", "git-bash"]
+      }
+    },
+    "64-bit": {
+      "python": {
+        "command": "python",
+        "paths": [
+          "C:\\Python39\\python.exe",
+          "C:\\Python310\\python.exe",
+          "C:\\Python311\\python.exe",
+          "${env:PYTHON_HOME}\\python.exe",
+          "${env:LOCALAPPDATA}\\Programs\\Python\\Python*\\python.exe"
+        ],
+        "fallback": "python"
+      },
+      "node": {
+        "command": "node",
+        "paths": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "${env:PROGRAMFILES}\\nodejs\\node.exe",
+          "${env:LOCALAPPDATA}\\Programs\\nodejs\\node.exe"
+        ],
+        "fallback": "node"
+      },
+      "terminal": {
+        "default": "PowerShell",
+        "profiles": ["PowerShell", "cmd", "git-bash", "wsl"]
+      }
+    }
+  },
+  "linux": {
+    "32-bit": {
+      "python": {
+        "command": "python3",
+        "paths": [
+          "/usr/bin/python3",
+          "/usr/local/bin/python3"
+        ],
+        "fallback": "python3"
+      },
+      "node": {
+        "command": "node",
+        "paths": [
+          "/usr/bin/node",
+          "/usr/local/bin/node"
+        ],
+        "fallback": "node"
+      }
+    },
+    "64-bit": {
+      "python": {
+        "command": "python3",
+        "paths": [
+          "/usr/bin/python3",
+          "/usr/local/bin/python3",
+          "${HOME}/.local/bin/python3"
+        ],
+        "fallback": "python3"
+      },
+      "node": {
+        "command": "node",
+        "paths": [
+          "/usr/bin/node",
+          "/usr/local/bin/node",
+          "${HOME}/.nvm/versions/node/*/bin/node"
+        ],
+        "fallback": "node"
+      }
+    }
+  },
+  "darwin": {
+    "64-bit": {
+      "python": {
+        "command": "python3",
+        "paths": [
+          "/usr/local/bin/python3",
+          "/opt/homebrew/bin/python3",
+          "${HOME}/.pyenv/shims/python3"
+        ],
+        "fallback": "python3"
+      },
+      "node": {
+        "command": "node",
+        "paths": [
+          "/usr/local/bin/node",
+          "/opt/homebrew/bin/node",
+          "${HOME}/.nvm/versions/node/*/bin/node"
+        ],
+        "fallback": "node"
+      }
+    }
+  }
+}
