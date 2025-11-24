@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "config_path": "/home/ubuntu/.network_security",
+  "setup_script": "/home/ubuntu/.network_security/setup_private_network.sh",
+  "configurations": [
+    "firewall_rules.sh",
+    "hosts_config.json",
+    "ssh_config",
+    "network_namespace.sh",
+    "connection_monitor.py",
+    "setup_private_network.sh"
+  ]
+}
