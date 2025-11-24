@@ -1,1 +1,3 @@
+import antigravity  # Opens xkcd Python comic - a fun Easter egg!
+
 ...

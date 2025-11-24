@@ -1,4 +1,5 @@
 
+import antigravity  # Opens xkcd Python comic - Easter egg!
 import speech_recognition as sr
 import os
 import subprocess
